@@ -1,12 +1,5 @@
-// ==========================================================================
-// SkillHub Premium, Creative, & Full Interactive Core Logic
-// ==========================================================================
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ==========================================================================
-       FITUR 1: AUTOMATIC LIGHT/DARK THEME SWITCHER
-       ========================================================================== */
     const navbarNav = document.querySelector(".navbar .navbar-nav");
     if (navbarNav) {
         const themeLi = document.createElement("li");
@@ -42,9 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    /* ==========================================================================
-       FITUR 2: REAL-TIME COUNTDOWN TIMER (FOMO ENGINE) untuk index.html
-       ========================================================================== */
     const countdownContainer = document.getElementById("countdownBox");
     if (countdownContainer) {
         let targetTime = new Date();
@@ -69,9 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     }
 
-    /* ==========================================================================
-       FITUR 3: ANIMATED COUNTER UP (SOCIAL PROOF INJECTOR) untuk index.html
-       ========================================================================== */
     const statNumbers = document.querySelectorAll(".stat-number");
     statNumbers.forEach(stat => {
         const targetValue = parseInt(stat.getAttribute("data-target"));
@@ -90,9 +77,6 @@ document.addEventListener("DOMContentLoaded", function () {
         runCounter();
     });
 
-    /* ==========================================================================
-       FITUR 4: LIVE SEARCH CARD FILTER untuk katalog.html
-       ========================================================================== */
     const searchInput = document.getElementById("searchInput");
     if (searchInput) {
         searchInput.addEventListener("keyup", function () {
@@ -112,9 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    /* ==========================================================================
-       FITUR 5: AUTOMATIC PRICE CALCULATOR & LIVE VALIDATION untuk daftar.html
-       ========================================================================== */
     const programSelect = document.getElementById("programSelect");
     const priceDisplay = document.getElementById("priceDisplay");
     const registrationForm = document.getElementById("registrationForm");
@@ -176,16 +157,12 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
     }
 
-    /* ==========================================================================
-       FITUR 6: DYNAMIC DETAIL PAGE untuk detail-program.html
-       ========================================================================== */
     const programVideo = document.getElementById("programVideo");
     
     if (programVideo) {
         const urlParams = new URLSearchParams(window.location.search);
-        const programCode = urlParams.get('program') || 'data'; // Default ke 'data' jika diakses langsung tanpa link parameter
+        const programCode = urlParams.get('program') || 'data';
 
-        // Database konten program
         const courseData = {
             data: {
                 title: "Cuplikan Kelas Data Analyst",
@@ -200,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function () {
             },
             excel: {
                 title: "Cuplikan Kelas Microsoft Excel",
-                videoSrc: "https://www.youtube.com/embed/Y8xhrUa3KH4?si=mtz_to5fR4A-cwme", // Bisa diganti dengan link ID Video Youtube Excel yang asli
+                videoSrc: "https://www.youtube.com/embed/Y8xhrUa3KH4?si=mtz_to5fR4A-cwme", 
                 desc: "Masterclass Excel ini akan mengajarkan Anda cara mengotomatisasi pekerjaan administratif, membedah data kompleks dengan cepat menggunakan Pivot Table, dan memahami dasar Macro/VBA untuk meningkatkan efisiensi waktu kerja Anda di kantor secara signifikan.",
                 syllabus: [
                     "Sesi 1: Pengenalan Advanced Formulas (VLOOKUP, INDEX MATCH)",
@@ -214,12 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedCourse = courseData[programCode];
 
         if (selectedCourse) {
-            // Suntik teks dan link video
             document.getElementById("programTitle").innerText = selectedCourse.title;
             document.getElementById("programVideo").src = selectedCourse.videoSrc;
             document.getElementById("programDesc").innerText = selectedCourse.desc;
             
-            // Suntik list silabus
             const syllabusContainer = document.getElementById("syllabusList");
             syllabusContainer.innerHTML = ""; 
             
